@@ -430,10 +430,8 @@ themeBtn.addEventListener('click', () => {
 skinSelect.addEventListener('change', () => {
   applySkin(skinSelect.value, true);
   skinSelect.blur(); // evita que Space (caída) cambie el select
-  if (paused || gameOver) {
-    draw();
-    drawNext();
-  }
+  drawNext(); // el loop no redibuja NEXT
+  if (paused || gameOver) draw();
 });
 
 applyTheme(document.documentElement.dataset.theme === 'light', false);
