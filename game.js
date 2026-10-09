@@ -3,6 +3,7 @@
 const COLS = 10;
 const ROWS = 20;
 const BLOCK = 30;
+const TITLE_H = 50; // banda superior del canvas donde se dibuja el título
 
 const COLORS = [
   null,
@@ -185,8 +186,26 @@ function drawGrid() {
   }
 }
 
+function drawTitle() {
+  ctx.fillStyle = '#7aa2f7';
+  ctx.font = '800 32px system-ui, sans-serif';
+  ctx.textAlign = 'center';
+  ctx.textBaseline = 'middle';
+  if ('letterSpacing' in ctx) ctx.letterSpacing = '8px';
+  ctx.fillText('TETRIS', canvas.width / 2 + 4, TITLE_H / 2);
+  if ('letterSpacing' in ctx) ctx.letterSpacing = '0px';
+}
+
 function draw() {
   ctx.clearRect(0, 0, canvas.width, canvas.height);
+  drawTitle();
+  ctx.save();
+  ctx.translate(0, TITLE_H);
+  drawBoard();
+  ctx.restore();
+}
+
+function drawBoard() {
   drawGrid();
 
   // board
