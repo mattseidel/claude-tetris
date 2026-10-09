@@ -188,7 +188,7 @@ kbd {
   color: var(--accent);
 }
 
-#restart-btn {
+#restart-btn, #play-btn, #save-btn {
   margin-top: 8px;
   background: var(--accent);
   color: var(--on-accent);
@@ -202,6 +202,58 @@ kbd {
   transition: background 0.15s;
 }
 
-#restart-btn:hover {
+#restart-btn:hover, #play-btn:hover, #save-btn:hover {
   background: var(--accent-hover);
+}
+
+.hidden { display: none !important; }
+
+.start-title {
+  font-size: 32px;
+  font-weight: 800;
+  letter-spacing: 8px;
+  color: var(--accent);
+}
+
+#go-extra { display: flex; flex-direction: column; gap: 10px; align-items: center; }
+
+#name-form { display: flex; gap: 6px; }
+#name-form button { margin-top: 0; padding: 6px 14px; }
+
+#name-input {
+  width: 130px;
+  padding: 6px 8px;
+  background: var(--surface);
+  color: var(--text);
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  font-size: 13px;
+  user-select: text;
+}
+
+.records {
+  list-style: decimal inside;
+  font-family: 'Courier New', Courier, monospace;
+  font-size: 12px;
+  color: var(--text);
+  text-align: left;
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+}
+
+.records li { padding: 2px 6px; border-radius: 3px; }
+.records li.empty { list-style: none; color: var(--muted); }
+.records li.highlight { background: var(--accent); color: var(--on-accent); font-weight: 700; }
+
+.records-best { font-size: 12px; color: var(--muted); }
+
+#reset-records-btn {
+  background: none;
+  color: var(--danger);
+  border: 1px solid var(--danger);
+  border-radius: 6px;
+  padding: 5px 14px;
+  font-size: 12px;
+  cursor: pointer;
 }
