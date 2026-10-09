@@ -312,7 +312,9 @@ function init() {
   board = createBoard();
   score = 0;
   lines = 0;
+  startLevel = parseInt(startLevelSel.value, 10) || 1;
   level = startLevel;
+  ignoreRepeat = false;
   paused = false;
   gameOver = false;
   dropInterval = levelInterval(level);
@@ -328,6 +330,7 @@ function init() {
 }
 
 document.addEventListener('keydown', e => {
+  if (e.target === startLevelSel) return; // Esc/letras del desplegable no pausan
   if (e.repeat && ignoreRepeat) return;
   ignoreRepeat = false;
   if (e.code === 'KeyP' || e.code === 'Escape') {
@@ -367,8 +370,8 @@ controlsBtn.addEventListener('click', () => {
   controlsBtn.blur();
 });
 startLevelSel.addEventListener('change', () => {
-  startLevel = parseInt(startLevelSel.value, 10);
-  try { localStorage.setItem('startLevel', String(startLevel)); } catch (e) {}
+  // solo aplica en la próxima partida: init() lo copia a startLevel
+  try { localStorage.setItem('startLevel', startLevelSel.value); } catch (e) {}
   startLevelSel.blur();
 });
 
