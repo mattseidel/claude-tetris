@@ -137,7 +137,8 @@ kbd {
 }
 
 /* ---- Selector de tema ---- */
-#theme-toggle {
+#theme-toggle,
+#skin-select {
   background: var(--kbd-bg);
   color: var(--text);
   border: 1px solid var(--kbd-border);
@@ -147,7 +148,8 @@ kbd {
   cursor: pointer;
 }
 
-#theme-toggle:hover {
+#theme-toggle:hover,
+#skin-select:hover {
   border-color: var(--accent);
 }
 
